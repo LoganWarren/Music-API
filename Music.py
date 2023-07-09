@@ -9,6 +9,7 @@ client_credentials_manager = SpotifyClientCredentials(client_id=client_id, clien
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
 
 # Search for a track
-results = sp.search(q='Radiohead', limit=20)
+search_query = input("Enter the name of the artist or song: ")
+results = sp.search(q=search_query, limit=20)
 for i, t in enumerate(results['tracks']['items']):
     print(' ', i, t['name'])
